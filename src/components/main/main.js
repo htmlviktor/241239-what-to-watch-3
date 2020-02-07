@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Main = ({film, films}) => {
+const Main = ({film, films, onClick}) => {
   return <div>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -61,7 +61,7 @@ const Main = ({film, films}) => {
     </section>
     <div className="page-content">
       <section className="catalog">
-        <h2 className="catalog__title visually-hidden">Catalog</h2>
+        <h2 onClick={onClick} className="catalog__title visually-hidden">Catalog</h2>
         <ul className="catalog__genres-list">
           <li className="catalog__genres-item catalog__genres-item--active">
             <a href="#" className="catalog__genres-link">
@@ -162,7 +162,8 @@ Main.propTypes = {
     genre: PropTypes.string,
     year: PropTypes.number
   }).isRequired,
-  films: PropTypes.arrayOf(PropTypes.string)
+  films: PropTypes.arrayOf(PropTypes.string),
+  onClick: PropTypes.func
 };
 
 export default Main;
