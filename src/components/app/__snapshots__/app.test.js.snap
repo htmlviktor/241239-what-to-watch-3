@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main snapshot test 1`] = `
+exports[`App snapshot test 1`] = `
 <div>
   <section
     className="movie-card"
@@ -267,7 +267,9 @@ exports[`Main snapshot test 1`] = `
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-            />
+            >
+              Fantastic Beasts
+            </a>
           </h3>
         </article>
         <article
@@ -290,7 +292,9 @@ exports[`Main snapshot test 1`] = `
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-            />
+            >
+              Bohemian Rhapsody
+            </a>
           </h3>
         </article>
         <article
@@ -313,7 +317,59 @@ exports[`Main snapshot test 1`] = `
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+            >
+              Macbeth
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              height={175}
+              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              width={280}
             />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Bad Guys
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              height={175}
+              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              width={280}
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Venom. New Part
+            </a>
           </h3>
         </article>
       </div>

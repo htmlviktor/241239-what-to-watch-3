@@ -4,4 +4,20 @@ export const film = {
   year: 2019
 };
 
-export const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+export default [
+  {
+    title: `Fantastic Beasts`,
+  },
+  {
+    title: `Bohemian Rhapsody`,
+  },
+  {
+    title: `Macbeth`,
+  },
+  {
+    title: `Bad Guys`,
+  },
+  {
+    title: `Venom. New Part`,
+  }
+];
