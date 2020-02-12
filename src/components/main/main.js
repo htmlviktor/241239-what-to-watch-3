@@ -9,7 +9,8 @@ import MovieCardWrap from "../movie-card-wrap";
 import ShowMoreButton from "../show-more-button";
 import Footer from "../footer";
 
-const Main = ({film, films}) => {
+const Main = ({film, films, onClick}) => {
+
   return <div>
     <section className="movie-card">
       <CardFilmBg />

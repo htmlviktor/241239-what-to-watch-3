@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 import Main from '../main';
 
-
 const App = ({film, films}) => {
-  return <Main film={film} films={films}/>;
+  return <Main film={film} films={films} onClick={() => {}}/>;
 };
 
 App.propTypes = {
