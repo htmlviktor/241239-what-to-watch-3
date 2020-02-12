@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Main from '../main';
 
 const App = ({film, films}) => {
-  return <Main film={film} films={films} onClick={() => {}}/>;
+  return <Main film={film} films={films} />;
 };
 
 App.propTypes = {

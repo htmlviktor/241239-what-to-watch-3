@@ -34,7 +34,7 @@ const MovieCardWrap = ({film}) => {
         </div>
       </div>
     </div>
-  </div>
+  </div>;
 };
 
 MovieCardWrap.propTypes = {
@@ -43,6 +43,6 @@ MovieCardWrap.propTypes = {
     year: PropTypes.number.isRequired,
     genre: PropTypes.string.isRequired
   })
-}
+};
 
 export default MovieCardWrap;

@@ -9,7 +9,7 @@ import MovieCardWrap from "../movie-card-wrap";
 import ShowMoreButton from "../show-more-button";
 import Footer from "../footer";
 
-const Main = ({film, films, onClick}) => {
+const Main = ({film, films}) => {
 
   return <div>
     <section className="movie-card">
