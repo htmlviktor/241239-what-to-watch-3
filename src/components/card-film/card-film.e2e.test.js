@@ -20,4 +20,5 @@ it(`CardFilm film e2e test`, () => {
 
   cardFilmComponent.simulate(`mouseenter`);
   expect(onMouseEnter).toHaveBeenCalledTimes(1);
+  expect(onMouseEnter.mock.calls[0][0]).toMatchObject(film);
 });
