@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main snapshot test 1`] = `
+exports[`MainPage snapshot test 1`] = `
 <div>
   <section
     className="movie-card"

@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from './main';
+import MainPage from './main-page';
 import renderer from 'react-test-renderer';
 
 const film = {
@@ -12,7 +12,7 @@ const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
 
 it(`Main snapshot test`, () => {
   const tree = renderer
-    .create(<Main film={film} films={films} />)
+    .create(<MainPage film={film} films={films} />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
