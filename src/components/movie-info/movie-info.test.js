@@ -1,6 +1,6 @@
 import React from 'react';
+import MovieInfo from "./movie-info";
 import renderer from 'react-test-renderer';
-import CardFilm from "./card-film";
 
 const film = {
   title: `Fantastic Beasts`,
@@ -15,11 +15,9 @@ const film = {
   year: 2019,
 };
 
-const mockFn = () => {};
-
-it(`CardFilm snapshot test`, () => {
+it(`MovieInfo test snapshoot`, () => {
   const tree = renderer
-    .create(<CardFilm film={film} onMouseEnter={mockFn} />)
+    .create(<MovieInfo film={film}/>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

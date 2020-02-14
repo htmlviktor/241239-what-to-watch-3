@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainPage snapshot test 1`] = `
-<div>
+exports[`Main snapshot test 1`] = `
+Array [
   <section
     className="movie-card"
   >
@@ -75,9 +75,7 @@ exports[`MainPage snapshot test 1`] = `
         >
           <h2
             className="movie-card__title"
-          >
-            Great Film
-          </h2>
+          />
           <p
             className="movie-card__meta"
           >
@@ -133,7 +131,7 @@ exports[`MainPage snapshot test 1`] = `
         </div>
       </div>
     </div>
-  </section>
+  </section>,
   <div
     className="page-content"
   >
@@ -249,6 +247,7 @@ exports[`MainPage snapshot test 1`] = `
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -257,7 +256,7 @@ exports[`MainPage snapshot test 1`] = `
             <img
               alt="Fantastic Beasts: The Crimes of Grindelwald"
               height={175}
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/bohemian-rhapsody.jpg"
               width={280}
             />
           </div>
@@ -267,11 +266,14 @@ exports[`MainPage snapshot test 1`] = `
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-            />
+            >
+              Fantastic Beasts
+            </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -280,7 +282,7 @@ exports[`MainPage snapshot test 1`] = `
             <img
               alt="Fantastic Beasts: The Crimes of Grindelwald"
               height={175}
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/aviator.jpg"
               width={280}
             />
           </div>
@@ -290,11 +292,14 @@ exports[`MainPage snapshot test 1`] = `
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-            />
+            >
+              Bohemian Rhapsody
+            </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -303,7 +308,7 @@ exports[`MainPage snapshot test 1`] = `
             <img
               alt="Fantastic Beasts: The Crimes of Grindelwald"
               height={175}
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/revenant.jpg"
               width={280}
             />
           </div>
@@ -313,7 +318,9 @@ exports[`MainPage snapshot test 1`] = `
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-            />
+            >
+              Macbeth
+            </a>
           </h3>
         </article>
       </div>
@@ -362,6 +369,6 @@ exports[`MainPage snapshot test 1`] = `
         </p>
       </div>
     </footer>
-  </div>
-</div>
+  </div>,
+]
 `;

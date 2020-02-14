@@ -25,10 +25,7 @@ const CardFilm = ({film, onMouseEnter, onCardClick}) => {
 
 
 CardFilm.propTypes = {
-  film: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired
-  }),
+  film: PropTypes.object,
   onMouseEnter: PropTypes.func.isRequired,
   onCardClick: PropTypes.func
 };

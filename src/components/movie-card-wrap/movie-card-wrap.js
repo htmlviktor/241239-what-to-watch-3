@@ -39,11 +39,7 @@ const MovieCardWrap = ({film, showPoster}) => {
 };
 
 MovieCardWrap.propTypes = {
-  film: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    genre: PropTypes.string.isRequired
-  }),
+  film: PropTypes.object,
   showPoster: PropTypes.bool
 };
 

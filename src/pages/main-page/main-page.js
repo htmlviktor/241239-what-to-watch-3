@@ -31,14 +31,8 @@ const MainPage = ({film, films, onCardClick}) => {
 };
 
 MainPage.propTypes = {
-  film: PropTypes.shape({
-    name: PropTypes.string,
-    genre: PropTypes.string,
-    year: PropTypes.number
-  }).isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired
-  })),
+  film: PropTypes.object.isRequired,
+  films: PropTypes.arrayOf(PropTypes.object),
   onCardClick: PropTypes.func
 };
 

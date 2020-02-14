@@ -16,9 +16,7 @@ const CardFilmList = ({films, onCardClick}) => {
 };
 
 CardFilmList.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-  })),
+  films: PropTypes.arrayOf(PropTypes.object),
   onCardClick: PropTypes.func
 };
 
