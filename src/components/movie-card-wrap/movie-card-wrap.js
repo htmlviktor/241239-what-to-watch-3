@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MovieCardWrap = ({film}) => {
+const MovieCardWrap = ({film, showPoster}) => {
   return <div className="movie-card__wrap">
     <div className="movie-card__info">
-      <div className="movie-card__poster">
+      {showPoster && <div className="movie-card__poster">
         <img
           src="img/the-grand-budapest-hotel-poster.jpg"
           alt="The Grand Budapest Hotel poster"
           width={218}
           height={327}
         />
-      </div>
+      </div>}
       <div className="movie-card__desc">
-        <h2 className="movie-card__title">{film.name}</h2>
+        <h2 className="movie-card__title">{film.title}</h2>
         <p className="movie-card__meta">
           <span className="movie-card__genre">{film.genre}</span>
           <span className="movie-card__year">{film.year}</span>
@@ -31,6 +31,7 @@ const MovieCardWrap = ({film}) => {
             </svg>
             <span>My list</span>
           </button>
+          {!showPoster && <a href="add-review.html" className="btn movie-card__button">Add review</a>}
         </div>
       </div>
     </div>
@@ -38,11 +39,8 @@ const MovieCardWrap = ({film}) => {
 };
 
 MovieCardWrap.propTypes = {
-  film: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    genre: PropTypes.string.isRequired
-  })
+  film: PropTypes.object,
+  showPoster: PropTypes.bool
 };
 
 export default MovieCardWrap;

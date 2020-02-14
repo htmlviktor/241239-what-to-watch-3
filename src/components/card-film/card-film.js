@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CardFilm = ({film, onMouseEnter}) => {
+const CardFilm = ({film, onMouseEnter, onCardClick}) => {
+
   return <article
+    onClick={() => onCardClick(film)}
     onMouseEnter={() => onMouseEnter(film)}
     className="small-movie-card catalog__movies-card">
     <div className="small-movie-card__image">
       <img
-        src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+        src={`img/${film.img}`}
         alt="Fantastic Beasts: The Crimes of Grindelwald"
         width={280}
         height={175}
@@ -23,10 +25,9 @@ const CardFilm = ({film, onMouseEnter}) => {
 
 
 CardFilm.propTypes = {
-  film: PropTypes.shape({
-    title: PropTypes.string.isRequired
-  }),
-  onMouseEnter: PropTypes.func.isRequired
+  film: PropTypes.object,
+  onMouseEnter: PropTypes.func.isRequired,
+  onCardClick: PropTypes.func
 };
 
 export default CardFilm;
