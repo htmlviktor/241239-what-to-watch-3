@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CardFilmList from "../../components/card-film-list";
-import FilterList from "../../components/filter-list";
-import Header from "../../components/header";
-import CardFilmBg from "../../components/card-film-bg";
-import MovieCardWrap from "../../components/movie-card-wrap";
-import ShowMoreButton from "../../components/show-more-button";
-import Footer from "../../components/footer";
-import {MovieMainWrapper, PageContentWrapper} from "../../wappers/";
+import CardFilmList from "../../containers/card-film-list";
+import FilterList from "../../containers/filter-list";
+import Header from "../../containers/header";
+import CardFilmBg from "../../containers/card-film-bg";
+import MovieCardWrap from "../../containers/movie-card-wrap";
+import ShowMoreButton from "../../containers/show-more-button";
+import Footer from "../../containers/footer";
+import {MovieMainWrapper, PageContentWrapper} from "../../wappers";
 
 const MainPage = ({film, films, onCardClick}) => {
   return (
