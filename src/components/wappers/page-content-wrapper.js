@@ -9,8 +9,5 @@ PageContentWrapper.propTypes = {
   children: PropTypes.array
 };
 
-PageContentWrapper.propTypes = {
-  children: PropTypes.object
-};
 
 export default PageContentWrapper;
