@@ -1,23 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {filterForFilms} from "../../../utils";
 
 import CardFilm from "../card-film/card-film";
 
-const CardFilmList = ({films, onCardClick}) => {
-  const onMouseEnter = (info) => {
-    // eslint-disable-next-line no-console
-    console.log(info);
-  };
+const CardFilmList = ({filteredFilms, onCardClick}) => {
+
   return <div className="catalog__movies-list">
-    {films.map((filmItem, index) => {
-      return <CardFilm key={index} film={filmItem} onMouseEnter={onMouseEnter} onCardClick={onCardClick}/>;
+    {filteredFilms.map((filmItem, index) => {
+      return <CardFilm key={index} film={filmItem} onCardClick={onCardClick}/>;
     })}
   </div>;
 };
 
 CardFilmList.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.object),
+  filteredFilms: PropTypes.arrayOf(PropTypes.object),
   onCardClick: PropTypes.func
 };
 
-export default CardFilmList;
+const mapStateToProps = ({films, currentFilter}) => ({
+  filteredFilms: filterForFilms(films, currentFilter),
+});
+
+export default connect(mapStateToProps)(CardFilmList);

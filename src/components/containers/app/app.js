@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import MainPage from '../../pages/main-page';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import MoviePage from "../../pages/movie-page";
 
-export default class App extends React.PureComponent {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -40,22 +41,21 @@ export default class App extends React.PureComponent {
   }
 
   _renderApp() {
-    const {film, films} = this.props;
+    const {films} = this.props;
     if (this.state.activeScreen === `movie-info`) {
       return <MoviePage film={this.state.currentFilm} films={films} onCardClick={this.onCardClick}/>;
     } else {
-      return <MainPage film={film} films={films} onCardClick={this.onCardClick}/>;
+      return <MainPage film={films[0]} films={films} onCardClick={this.onCardClick}/>;
     }
   }
 }
 
 App.propTypes = {
-  film: PropTypes.shape({
-    name: PropTypes.string,
-    genre: PropTypes.string,
-    year: PropTypes.number
-  }).isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired
   }))
 };
+
+const mapStateToProps = ({films}) => ({films});
+
+export default connect(mapStateToProps)(App);
