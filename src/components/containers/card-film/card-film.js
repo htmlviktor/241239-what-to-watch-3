@@ -50,7 +50,6 @@ export default class CardFilm extends PureComponent {
 
 CardFilm.propTypes = {
   film: PropTypes.object,
-  onMouseEnter: PropTypes.func.isRequired,
   onCardClick: PropTypes.func
 };
 
