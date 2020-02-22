@@ -11,14 +11,11 @@ const MovieInfo = ({film}) => {
         <img src={`img/${film.img}`} alt="The Grand Budapest Hotel poster" width="218"
           height="327"/>
       </div>
-
       <MovieInfoTabs film={film} activeTab="overview">
         <MovieInfoTab>Overview</MovieInfoTab>
         <MovieInfoTab>Details</MovieInfoTab>
         <MovieInfoTab>Reviews</MovieInfoTab>
       </MovieInfoTabs>
-
-
     </div>
   </div>;
 };
