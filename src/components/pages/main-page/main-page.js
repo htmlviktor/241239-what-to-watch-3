@@ -22,7 +22,6 @@ const MainPage = ({film, films, onCardClick}) => {
         <section className="catalog">
           <FilterList />
           <CardFilmList films={films} onCardClick={onCardClick}/>
-          <ShowMoreButton />
         </section>
         <Footer />
       </PageContentWrapper>
