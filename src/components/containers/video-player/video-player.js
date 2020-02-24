@@ -28,7 +28,9 @@ export default class VideoPlayer extends PureComponent {
   }
 
   _startPlay() {
-    this._videoPlayer.current.play();
+    this._videoPlayer.current.addEventListener(`canplay`, () => {
+      this._videoPlayer.current.play();
+    });
   }
 
   _stopPlay() {
