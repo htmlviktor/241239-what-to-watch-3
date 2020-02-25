@@ -1,7 +1,9 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import VideoPlayer from "../video-player";
+import withPlayer from "../../hocs/with-player";
 
+const WithVideoPlayerComponent = withPlayer(VideoPlayer);
 
 export default class CardFilm extends PureComponent {
   constructor(props) {
@@ -28,7 +30,7 @@ export default class CardFilm extends PureComponent {
         className="small-movie-card catalog__movies-card">
         <div className="small-movie-card__image">
           {this.state.isPlay ?
-            <VideoPlayer film={film} isPlay={this.state.isPlay}/>
+            <WithVideoPlayerComponent film={film} isPlay={this.state.isPlay}/>
             : <img
               src={film.img}
               alt="Fantastic Beasts: The Crimes of Grindelwald"
