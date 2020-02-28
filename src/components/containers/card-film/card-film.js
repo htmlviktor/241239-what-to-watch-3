@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import VideoPlayer from "../video-player";
+import VideoPlayerPreview from "../video-player";
 
 
 export default class CardFilm extends PureComponent {
@@ -28,7 +28,7 @@ export default class CardFilm extends PureComponent {
         className="small-movie-card catalog__movies-card">
         <div className="small-movie-card__image">
           {this.state.isPlay ?
-            <VideoPlayer film={film} isPlay={this.state.isPlay}/>
+            <VideoPlayerPreview preview={film.preview}/>
             : <img
               src={film.img}
               alt="Fantastic Beasts: The Crimes of Grindelwald"

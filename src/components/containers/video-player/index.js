@@ -1,3 +1,3 @@
-import VideoPlayer from "./video-player";
+import VideoPlayerPreview from "./video-player";
 
-export default VideoPlayer;
+export default VideoPlayerPreview;
