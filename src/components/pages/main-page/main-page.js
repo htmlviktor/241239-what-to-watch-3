@@ -6,9 +6,10 @@ import FilterList from "../../containers/filter-list";
 import Header from "../../containers/header";
 import CardFilmBg from "../../containers/card-film-bg";
 import MovieCardWrap from "../../containers/movie-card-wrap";
-import ShowMoreButton from "../../containers/show-more-button";
 import Footer from "../../containers/footer";
 import {MovieMainWrapper, PageContentWrapper} from "../../wappers";
+import {VideoPlayerMain} from "../../containers/video-player";
+
 
 const MainPage = ({film, films, onCardClick}) => {
   return (
@@ -24,6 +25,7 @@ const MainPage = ({film, films, onCardClick}) => {
           <CardFilmList films={films} onCardClick={onCardClick}/>
         </section>
         <Footer />
+        <VideoPlayerMain film={film}/>
       </PageContentWrapper>
     </React.Fragment>
   );

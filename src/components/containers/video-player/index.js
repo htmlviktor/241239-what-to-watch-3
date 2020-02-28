@@ -1,3 +1,7 @@
-import VideoPlayerPreview from "./video-player";
+import VideoPlayerPreview from "./video-player-preview";
+import VideoPlayerMain from "./video-player-main";
 
-export default VideoPlayerPreview;
+export {
+  VideoPlayerPreview,
+  VideoPlayerMain
+};
