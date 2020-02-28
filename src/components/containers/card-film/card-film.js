@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import VideoPlayerPreview from "../video-player";
 
+import VideoPlayerPreview from "../video-player";
 
 export default class CardFilm extends PureComponent {
   constructor(props) {

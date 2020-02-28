@@ -13,6 +13,7 @@ const VideoPlayerPreview = ({preview}) => {
 
 VideoPlayerPreview.propTypes = {
   preview: PropTypes.string.isRequired
-};
+}
+
 
 export default VideoPlayerPreview;
