@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {ActionCreator} from "../../../reducer/reducer";
+import {connect} from 'react-redux';
 
-const MovieCardWrap = ({film, showPoster}) => {
+const MovieCardWrap = ({film, showPoster, onPlayClick}) => {
   return <div className="movie-card__wrap">
     <div className="movie-card__info">
       {showPoster && <div className="movie-card__poster">
@@ -19,7 +21,12 @@ const MovieCardWrap = ({film, showPoster}) => {
           <span className="movie-card__year">{film.year}</span>
         </p>
         <div className="movie-card__buttons">
-          <button className="btn btn--play movie-card__button" type="button">
+          <button
+            onClick={() => {
+              onPlayClick(film);
+            }}
+            className="btn btn--play movie-card__button"
+            type="button">
             <svg viewBox="0 0 19 19" width={19} height={19}>
               <use xlinkHref="#play-s" />
             </svg>
@@ -40,7 +47,14 @@ const MovieCardWrap = ({film, showPoster}) => {
 
 MovieCardWrap.propTypes = {
   film: PropTypes.object,
-  showPoster: PropTypes.bool
+  showPoster: PropTypes.bool,
+  onPlayClick: PropTypes.func
 };
 
-export default MovieCardWrap;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  onPlayClick: (film) => dispatch(ActionCreator.changeIsPlaying(film))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieCardWrap);
