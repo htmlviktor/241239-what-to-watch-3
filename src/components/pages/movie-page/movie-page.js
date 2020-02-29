@@ -8,8 +8,10 @@ import MovieInfo from "../../containers/movie-info";
 import {MovieMainWrapper, PageContentWrapper} from "../../wappers";
 import CardFilmList from "../../containers/card-film-list";
 import Footer from "../../containers/footer";
+import VideoPlayerMain from "../../containers/video-player/video-player-main";
+import {connect} from 'react-redux';
 
-const MoviePage = ({film, films, onCardClick}) => {
+const MoviePage = ({film, films, onCardClick, isShowPlayer}) => {
   return (
     <React.Fragment>
       <MovieMainWrapper>
@@ -26,6 +28,7 @@ const MoviePage = ({film, films, onCardClick}) => {
           <CardFilmList films={films} onCardClick={onCardClick}/>
         </section>
         <Footer/>
+        {isShowPlayer && <VideoPlayerMain />}
       </PageContentWrapper>
     </React.Fragment>
   );
@@ -35,6 +38,9 @@ MoviePage.propTypes = {
   film: PropTypes.object,
   films: PropTypes.array,
   onCardClick: PropTypes.func,
+  isShowPlayer: PropTypes.bool
 };
 
-export default MoviePage;
+const mapStateToProps = ({isShowPlayer}) => ({isShowPlayer});
+
+export default connect(mapStateToProps)(MoviePage);
