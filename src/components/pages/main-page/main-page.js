@@ -10,20 +10,21 @@ import Footer from "../../containers/footer";
 import {MovieMainWrapper, PageContentWrapper} from "../../wappers";
 import {VideoPlayerMain} from "../../containers/video-player";
 import {connect} from 'react-redux';
+import {getIsShowPlayer} from "../../../reducer/app/selectors";
 
 
-const MainPage = ({film, films, onCardClick, isShowPlayer}) => {
+const MainPage = ({isShowPlayer}) => {
   return (
     <React.Fragment>
       <MovieMainWrapper>
         <CardFilmBg />
         <Header />
-        <MovieCardWrap film={film} showPoster={true}/>
+        <MovieCardWrap showPoster={true}/>
       </MovieMainWrapper>
       <PageContentWrapper>
         <section className="catalog">
           <FilterList />
-          <CardFilmList films={films} onCardClick={onCardClick}/>
+          <CardFilmList />
         </section>
         <Footer />
         {isShowPlayer && <VideoPlayerMain />}
@@ -33,12 +34,13 @@ const MainPage = ({film, films, onCardClick, isShowPlayer}) => {
 };
 
 MainPage.propTypes = {
-  film: PropTypes.object.isRequired,
   films: PropTypes.arrayOf(PropTypes.object),
   onCardClick: PropTypes.func,
   isShowPlayer: PropTypes.bool
 };
 
-const mapStateToProps = ({isShowPlayer}) => ({isShowPlayer});
+const mapStateToProps = (state) => ({
+  isShowPlayer: getIsShowPlayer(state)
+});
 
 export default connect(mapStateToProps)(MainPage);

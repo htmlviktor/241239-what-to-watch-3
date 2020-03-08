@@ -1,35 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import {ActionCreator} from "../../../reducer/reducer";
+import {ActionCreator} from "../../../reducer/data/reducer";
 import {connect} from 'react-redux';
+import {getActiveFilter, getFilterList} from "../../../reducer/data/selectors";
 
-import {GENRES_FILTER} from "../../../const";
+import FilterItem from "../filter-item/filter-item";
 
-const FilterList = ({currentFilter, onClickFilter}) => {
+const FilterList = ({currentFilter, onClickFilter, filterList}) => {
   return <ul className="catalog__genres-list">
-    {GENRES_FILTER.map((name, i) => {
+    {filterList.map((name, index) => {
       return (
-        <li
-          key={i}
-          className={`catalog__genres-item ${currentFilter === name && `catalog__genres-item--active`}`}>
-          <a
-            onClick={(evt) => {
-              evt.preventDefault();
-              onClickFilter(name);
-            }}
-            href="#"
-            className="catalog__genres-link">
-            {name}
-          </a>
-        </li>
+        <FilterItem
+          key={index}
+          name={name}
+          currentFilter={currentFilter}
+          onClickFilter={onClickFilter}/>
       );
     })}
   </ul>;
 
 };
 
-const mapStateToProps = ({currentFilter}) => ({currentFilter});
+const mapStateToProps = (state) => ({
+  currentFilter: getActiveFilter(state),
+  filterList: getFilterList(state)
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onClickFilter: (filterName) => dispatch(ActionCreator.changeFilterName(filterName))
@@ -37,7 +32,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 FilterList.propTypes = {
   currentFilter: PropTypes.string,
-  onClickFilter: PropTypes.func
+  onClickFilter: PropTypes.func,
+  filterList: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterList);

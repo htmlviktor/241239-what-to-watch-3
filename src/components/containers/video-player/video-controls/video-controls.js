@@ -3,16 +3,14 @@ import React from 'react';
 
 const VideoControls = (props) => {
   const {onPlayClick, isPlaying, progress, duration, onAllScreenClick} = props;
-  const progressValue = progress * duration / 100;
+  const progressValue = 100 / duration * progress;
+
   return (
     <div className="player__controls">
       <div className="player__controls-row">
         <div className="player__time">
           <progress
-            onClick={(e) => {
-              console.log(e.target.parentNode.getBoundingClientRect());
-              console.log(e.target.getBoundingClientRect());
-            }}
+            onClick={(e) => {}}
             className="player__progress"
             value={progressValue} max="100" />
           <div

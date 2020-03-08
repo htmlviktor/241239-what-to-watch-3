@@ -7,46 +7,17 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import MoviePage from "../../pages/movie-page";
 
 class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentFilm: props.films[0],
-      activeScreen: `main`,
-    };
-
-    this.onCardClick = this.onCardClick.bind(this);
-  }
-
-  onCardClick(currentFilm) {
-    this.setState({
-      currentFilm,
-      activeScreen: `movie-info`,
-    });
-  }
 
   render() {
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            {this._renderApp()}
-          </Route>
-          <Route exact path="/dev">
-            <MoviePage film={this.state.currentFilm} films={this.props.films} onCardClick={this.onCardClick}/>
+            <MainPage />
           </Route>
         </Switch>
       </BrowserRouter>
     );
-  }
-
-  _renderApp() {
-    const {films} = this.props;
-    if (this.state.activeScreen === `movie-info`) {
-      return <MoviePage film={this.state.currentFilm} films={films} onCardClick={this.onCardClick}/>;
-    } else {
-      return <MainPage film={films[0]} films={films} onCardClick={this.onCardClick}/>;
-    }
   }
 }
 

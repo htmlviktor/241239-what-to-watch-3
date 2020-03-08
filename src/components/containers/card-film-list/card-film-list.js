@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {filterForFilms} from "../../../utils";
 
 import CardFilm from "../card-film/card-film";
 import ShowMoreButton from "../show-more-button";
+import {getFilteredFilms} from "../../../reducer/data/selectors";
 
 class CardFilmList extends PureComponent {
   constructor(props) {
@@ -47,8 +47,8 @@ CardFilmList.propTypes = {
   onCardClick: PropTypes.func
 };
 
-const mapStateToProps = ({films, currentFilter}) => ({
-  filteredFilms: filterForFilms(films, currentFilter),
+const mapStateToProps = (state) => ({
+  filteredFilms: getFilteredFilms(state),
 });
 
 export default connect(mapStateToProps)(CardFilmList);

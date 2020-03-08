@@ -1,24 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ActionCreator} from "../../../reducer/reducer";
+import {ActionCreator} from "../../../reducer/app/reducer";
 import {connect} from 'react-redux';
+import {getCurrentFilm} from "../../../reducer/data/selectors";
 
 const MovieCardWrap = ({film, showPoster, onPlayClick}) => {
+
   return <div className="movie-card__wrap">
     <div className="movie-card__info">
       {showPoster && <div className="movie-card__poster">
         <img
-          src="img/the-grand-budapest-hotel-poster.jpg"
+          src={film.posterImage}
           alt="The Grand Budapest Hotel poster"
           width={218}
           height={327}
         />
       </div>}
       <div className="movie-card__desc">
-        <h2 className="movie-card__title">{film.title}</h2>
+        <h2 className="movie-card__title">{film.name}</h2>
         <p className="movie-card__meta">
           <span className="movie-card__genre">{film.genre}</span>
-          <span className="movie-card__year">{film.year}</span>
+          <span className="movie-card__year">{film.released}</span>
         </p>
         <div className="movie-card__buttons">
           <button
@@ -51,7 +53,9 @@ MovieCardWrap.propTypes = {
   onPlayClick: PropTypes.func
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  film: getCurrentFilm(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayClick: (film) => dispatch(ActionCreator.changeIsPlaying(film))

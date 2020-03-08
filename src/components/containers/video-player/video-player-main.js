@@ -2,8 +2,9 @@ import React, {PureComponent} from 'react';
 import ReactPlayer from "react-player";
 import VideoControls from "./video-controls";
 import PropTypes from 'prop-types';
-import {ActionCreator} from "../../../reducer/reducer";
+import {ActionCreator} from "../../../reducer/data/reducer";
 import {connect} from 'react-redux';
+import {getCurrentFilm} from "../../../reducer/data/selectors";
 
 const style = {
   'zIndex': 5,
@@ -74,7 +75,7 @@ class VideoPlayerMain extends PureComponent {
   }
 
   render() {
-    const {currentFilmPlay: {preview}, onExitButtonClick, currentFilmPlay} = this.props;
+    const {currentFilmPlay: {videoLink}, onExitButtonClick, currentFilmPlay} = this.props;
     return (
       <div
         className="player"
@@ -88,7 +89,7 @@ class VideoPlayerMain extends PureComponent {
           width='100%'
           height='100%'
           className="player__video"
-          url={preview}/>
+          url={videoLink}/>
         {
           this.state.isShowControls && <button
             onClick={() => onExitButtonClick(currentFilmPlay)}
@@ -116,7 +117,9 @@ VideoPlayerMain.propTypes = {
   onExitButtonClick: PropTypes.func
 };
 
-const mapStateToProps = ({currentFilmPlay}) => ({currentFilmPlay});
+const mapStateToProps = (state) => ({
+  currentFilmPlay: getCurrentFilm(state)
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onExitButtonClick: (film) => dispatch(ActionCreator.changeIsPlaying(film))

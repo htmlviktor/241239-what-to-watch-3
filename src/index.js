@@ -2,12 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/containers/app';
 
-import reducer from "./reducer/reducer";
-import {createStore} from "redux";
+import {Operation as DataOperation} from "./reducer/data/reducer";
+
+
+import reducer from './reducer/reducer';
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from 'react-redux';
 
+import thunk from "redux-thunk";
+import createApi from "./api/api";
 
-const store = createStore(reducer);
+const api = createApi();
+
+const store = createStore(reducer, applyMiddleware(thunk.withExtraArgument(api)));
+
+store.dispatch(DataOperation.loadFilms());
 
 ReactDOM.render(
     <Provider store={store}>
