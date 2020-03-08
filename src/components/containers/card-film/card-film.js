@@ -28,9 +28,9 @@ export default class CardFilm extends PureComponent {
         className="small-movie-card catalog__movies-card">
         <div className="small-movie-card__image">
           {this.state.isPlay ?
-            <VideoPlayerPreview preview={film.preview}/>
+            <VideoPlayerPreview preview={film.previewVideoLink}/>
             : <img
-              src={film.img}
+              src={film.previewImage}
               alt="Fantastic Beasts: The Crimes of Grindelwald"
               width={280}
               height={175}
@@ -39,7 +39,7 @@ export default class CardFilm extends PureComponent {
         </div>
         <h3 className="small-movie-card__title">
           <a className="small-movie-card__link" href="movie-page.html">
-            {film.title}
+            {film.name}
           </a>
         </h3>
       </article>
