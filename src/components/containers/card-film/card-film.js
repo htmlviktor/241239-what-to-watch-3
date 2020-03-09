@@ -1,7 +1,9 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {pushHistory} from "../../../utils";
 
 import {VideoPlayerPreview} from "../video-player";
+import {AppRoute} from "../../../const";
 
 export default class CardFilm extends PureComponent {
   constructor(props) {
@@ -19,10 +21,12 @@ export default class CardFilm extends PureComponent {
   }
 
   render() {
-    const {film, onCardClick} = this.props;
+    const {film} = this.props;
     return (
       <article
-        onClick={() => onCardClick(film)}
+        onClick={() => {
+          pushHistory(AppRoute.FILMS, film.id);
+        }}
         onMouseEnter={this._handleChangeMoving}
         onMouseLeave={this._handleChangeMoving}
         className="small-movie-card catalog__movies-card">

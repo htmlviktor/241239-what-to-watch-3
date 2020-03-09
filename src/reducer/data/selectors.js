@@ -14,6 +14,9 @@ export const getCurrentFilm = (state) => {
   return state[NameSpace.DATA].currentFilmPlay;
 };
 
+export const getFilmId = (state, ownProps) => {
+  return ownProps;
+};
 
 export const getFilterList = createSelector(
     getFilms,
@@ -30,3 +33,11 @@ export const getFilteredFilms = createSelector(
     }
 );
 
+
+export const getFilmForId = createSelector(
+    getFilms,
+    getFilmId,
+    (one, two) => {
+      return one.find((it) => it.id === Number(two));
+    }
+);

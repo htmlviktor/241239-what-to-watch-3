@@ -1,13 +1,15 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import {AppRoute} from "../../../const";
 
 const Header = () => {
   return <header className="page-header movie-card__head">
     <div className="logo">
-      <a className="logo__link">
+      <Link to={AppRoute.ROOT} className="logo__link">
         <span className="logo__letter logo__letter--1">W</span>
         <span className="logo__letter logo__letter--2">T</span>
         <span className="logo__letter logo__letter--3">W</span>
-      </a>
+      </Link>
     </div>
     <div className="user-block">
       <div className="user-block__avatar">

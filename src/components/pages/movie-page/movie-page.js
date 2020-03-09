@@ -10,22 +10,27 @@ import CardFilmList from "../../containers/card-film-list";
 import Footer from "../../containers/footer";
 import VideoPlayerMain from "../../containers/video-player/video-player-main";
 import {connect} from 'react-redux';
+import {getIsShowPlayer} from "../../../reducer/app/selectors";
+import {getFilmForId} from "../../../reducer/data/selectors";
 
-const MoviePage = ({film, films, onCardClick, isShowPlayer}) => {
+import {compose} from "redux";
+import withLoadIndicator from "../../hocs/withLoadIndicator";
+
+const MoviePage = ({item, isShowPlayer}) => {
   return (
     <React.Fragment>
       <MovieMainWrapper>
         <div className="movie-card__hero">
           <CardFilmBg/>
           <Header/>
-          <MovieCardWrap film={film} showPoster={false}/>
+          <MovieCardWrap film={item} showPoster={false}/>
         </div>
-        <MovieInfo film={film}/>
+        <MovieInfo film={item}/>
       </MovieMainWrapper>
       <PageContentWrapper>
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <CardFilmList films={films} onCardClick={onCardClick}/>
+          <CardFilmList />
         </section>
         <Footer/>
         {isShowPlayer && <VideoPlayerMain />}
@@ -35,12 +40,19 @@ const MoviePage = ({film, films, onCardClick, isShowPlayer}) => {
 };
 
 MoviePage.propTypes = {
-  film: PropTypes.object,
-  films: PropTypes.array,
+  item: PropTypes.object,
   onCardClick: PropTypes.func,
   isShowPlayer: PropTypes.bool
 };
 
-const mapStateToProps = ({isShowPlayer}) => ({isShowPlayer});
+const mapStateToProps = (state, {id}) => {
+  return {
+    isShowPlayer: getIsShowPlayer(state),
+    item: getFilmForId(state, id)
+  };
+};
 
-export default connect(mapStateToProps)(MoviePage);
+export default compose(
+    connect(mapStateToProps),
+    withLoadIndicator
+)(MoviePage);

@@ -3,20 +3,24 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import MainPage from '../../pages/main-page';
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {Router, Switch, Route} from "react-router-dom";
 import MoviePage from "../../pages/movie-page";
+
+import history from "../../../history";
+import {AppRoute} from "../../../const";
 
 class App extends React.PureComponent {
 
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
+          <Route exact path={AppRoute.ROOT} component={MainPage} />
+          <Route path={`${AppRoute.FILMS}/:id`} render={({match}) => {
+            return <MoviePage id={match.params.id}/>;
+          }}/>
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

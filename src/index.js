@@ -4,7 +4,6 @@ import App from './components/containers/app';
 
 import {Operation as DataOperation} from "./reducer/data/reducer";
 
-
 import reducer from './reducer/reducer';
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from 'react-redux';

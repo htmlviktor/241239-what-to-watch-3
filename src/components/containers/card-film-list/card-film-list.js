@@ -32,7 +32,7 @@ class CardFilmList extends PureComponent {
       <React.Fragment>
         <div className="catalog__movies-list">
           {cards.map((filmItem, index) => {
-            return <CardFilm key={index} film={filmItem} onCardClick={onCardClick}/>;
+            return <CardFilm key={index} film={filmItem} />;
           })}
         </div>
         {button}

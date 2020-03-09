@@ -1,3 +1,5 @@
+import history from "./history";
+
 export const filterForFilms = (films, filterName) => {
   switch (filterName) {
     case `All genres`: return films;
@@ -28,3 +30,12 @@ export const adapter = (data) => ({
   videoLink: data[`video_link`],
   previewVideoLink: data[`preview_video_link`]
 });
+
+
+export const pushHistory = (route, param) => {
+  if (param) {
+    history.push(`${route}/${param}`);
+  } else {
+    history.push(`${route}`);
+  }
+};
