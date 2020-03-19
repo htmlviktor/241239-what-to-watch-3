@@ -1,11 +1,10 @@
-export const GENRES_FILTER = [
-  `All genres`,
-  `Comedies`,
-  `Crime`,
-  `Documentary`,
-  `Dramas`,
-  `Horror`,
-  `Kids & Family`,
-  `Romance`,
-  `Sci-Fi`,
-  `Thrillers`];
+export const AppRoute = {
+  LOGIN: `/login`,
+  FILMS: `/films`,
+  ROOT: `/`
+};
+
+export const AUTH_STATUS = {
+  NO_AUTH: `NO_AUTH`,
+  AUTH: `AUTH`
+};
