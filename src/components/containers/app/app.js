@@ -11,6 +11,7 @@ import {AppRoute} from "../../../const";
 import SignInPage from "../../pages/sign-in";
 import {getAuthStatus} from "../../../reducer/user/selectors";
 import withRouteStatus from "../../hocs/withRouteStatus";
+import AddReviewPage from "../../pages/add-review-page/add-review-page";
 
 const SignInPageWrapped = withRouteStatus(SignInPage, AppRoute.ROOT);
 
@@ -20,11 +21,14 @@ class App extends React.PureComponent {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path={AppRoute.ROOT} component={MainPage} />
+          <Route exact path={AppRoute.ROOT} component={MainPage}/>
           <Route path={`${AppRoute.FILMS}/:id`} render={({match}) => {
             return <MoviePage id={match.params.id}/>;
           }}/>
-          <Route exact path={AppRoute.LOGIN} component={SignInPageWrapped}/>
+          <Route exact path={AppRoute.LOGIN} component={SignInPageWrapped} />
+          <Route exact path={`${AppRoute.ADD_REVIEW}/:id`} render={({match}) => {
+            return <AddReviewPage id={match.params.id} />;
+          }}/>
 
           <Redirect to={AppRoute.ROOT}/>
         </Switch>

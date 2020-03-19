@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/containers/app';
 
 import {Operation as DataOperation} from "./reducer/data/reducer";
+import {Operation as UserOperation} from "./reducer/user/reducer";
 
 import reducer from './reducer/reducer';
 import {createStore, applyMiddleware} from "redux";
@@ -16,6 +17,7 @@ const api = createApi();
 const store = createStore(reducer, applyMiddleware(thunk.withExtraArgument(api)));
 
 store.dispatch(DataOperation.loadFilms());
+store.dispatch(UserOperation.checkAuthorization());
 
 ReactDOM.render(
     <Provider store={store}>

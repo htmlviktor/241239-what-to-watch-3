@@ -19,6 +19,7 @@ const withLoadIndicator = (Component) => {
 
 
     render() {
+      console.log(this.state.isLoading)
       if (this.state.isLoading) {
         return <div>Загрузка...</div>;
       }

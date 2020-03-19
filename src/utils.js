@@ -31,6 +31,12 @@ export const adapter = (data) => ({
   previewVideoLink: data[`preview_video_link`]
 });
 
+export const userAdapter = (data) => ({
+  id: data.id,
+  email: data.email,
+  name: data.name,
+  avatar: data[`avatar_url`]
+});
 
 export const pushHistory = (route, param) => {
   if (param) {
