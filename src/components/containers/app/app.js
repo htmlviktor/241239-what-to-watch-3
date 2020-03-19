@@ -10,7 +10,9 @@ import history from "../../../history";
 import {AppRoute} from "../../../const";
 import SignInPage from "../../pages/sign-in";
 import {getAuthStatus} from "../../../reducer/user/selectors";
+import withRouteStatus from "../../hocs/withRouteStatus";
 
+const SignInPageWrapped = withRouteStatus(SignInPage, AppRoute.ROOT);
 
 class App extends React.PureComponent {
 
@@ -22,7 +24,7 @@ class App extends React.PureComponent {
           <Route path={`${AppRoute.FILMS}/:id`} render={({match}) => {
             return <MoviePage id={match.params.id}/>;
           }}/>
-          <Route exact path={AppRoute.LOGIN} component={SignInPage}/>
+          <Route exact path={AppRoute.LOGIN} component={SignInPageWrapped}/>
 
           <Redirect to={AppRoute.ROOT}/>
         </Switch>

@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import Header from "../../containers/header";
 import Footer from "../../containers/footer";
 import SignInForm from "../../containers/sign-in-form";
-import withRouteStatus from "../../hocs/withRouteStatus";
+
 
 class SignInPage extends PureComponent {
 
@@ -15,6 +15,7 @@ class SignInPage extends PureComponent {
   }
 
   render() {
+
     return (
       <React.Fragment>
         <Header />
@@ -26,4 +27,4 @@ class SignInPage extends PureComponent {
 };
 
 
-export default withRouteStatus(SignInPage);
+export default SignInPage;
