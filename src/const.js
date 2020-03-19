@@ -4,3 +4,7 @@ export const AppRoute = {
   ROOT: `/`
 };
 
+export const AUTH_STATUS = {
+  NO_AUTH: `NO_AUTH`,
+  AUTH: `AUTH`
+};

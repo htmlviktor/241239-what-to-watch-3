@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import MainPage from '../../pages/main-page';
-import {Router, Switch, Route} from "react-router-dom";
+import {Router, Switch, Route, Redirect} from "react-router-dom";
 import MoviePage from "../../pages/movie-page";
 
 import history from "../../../history";
 import {AppRoute} from "../../../const";
+import SignInPage from "../../pages/sign-in";
+import {getAuthStatus} from "../../../reducer/user/selectors";
+
 
 class App extends React.PureComponent {
 
@@ -19,6 +22,9 @@ class App extends React.PureComponent {
           <Route path={`${AppRoute.FILMS}/:id`} render={({match}) => {
             return <MoviePage id={match.params.id}/>;
           }}/>
+          <Route exact path={AppRoute.LOGIN} component={SignInPage}/>
+
+          <Redirect to={AppRoute.ROOT}/>
         </Switch>
       </Router>
     );
@@ -31,6 +37,8 @@ App.propTypes = {
   }))
 };
 
-const mapStateToProps = ({films}) => ({films});
+const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthStatus(state)
+});
 
 export default connect(mapStateToProps)(App);
