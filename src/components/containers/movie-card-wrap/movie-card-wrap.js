@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import {ActionCreator} from "../../../reducer/app/reducer";
 import {connect} from 'react-redux';
 import {getCurrentFilm} from "../../../reducer/data/selectors";
+import {getAuthStatus} from "../../../reducer/user/selectors";
+import {AUTH_STATUS} from "../../../const";
 
-const MovieCardWrap = ({film, showPoster, onPlayClick}) => {
+const MovieCardWrap = ({film, showPoster, onPlayClick, status}) => {
 
   return <div className="movie-card__wrap">
     <div className="movie-card__info">
@@ -40,7 +42,7 @@ const MovieCardWrap = ({film, showPoster, onPlayClick}) => {
             </svg>
             <span>My list</span>
           </button>
-          {!showPoster && <a href="add-review.html" className="btn movie-card__button">Add review</a>}
+          {status === AUTH_STATUS.AUTH && <a href="add-review.html" className="btn movie-card__button">Add review</a>}
         </div>
       </div>
     </div>
@@ -55,10 +57,11 @@ MovieCardWrap.propTypes = {
 
 const mapStateToProps = (state) => ({
   film: getCurrentFilm(state),
+  status: getAuthStatus(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onPlayClick: (film) => dispatch(ActionCreator.changeIsPlaying(film))
+  onPlayClick: (film) => dispatch(ActionCreator.changeIsPlaying(film)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCardWrap);
