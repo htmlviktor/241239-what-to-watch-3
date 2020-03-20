@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 import {AppRoute} from "../../../const";
 import Avatar from '../avatar';
 
-const Header = () => {
+const Header = (props) => {
+  const {render} = props;
   return <header className="page-header movie-card__head">
     <div className="logo">
       <Link to={AppRoute.ROOT} className="logo__link">
@@ -12,6 +13,7 @@ const Header = () => {
         <span className="logo__letter logo__letter--3">W</span>
       </Link>
     </div>
+    {render}
     <div className="user-block">
       <Avatar/>
     </div>

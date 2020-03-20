@@ -41,3 +41,15 @@ export const getFilmForId = createSelector(
       return one.find((it) => it.id === Number(two));
     }
 );
+
+export const getFilmName = createSelector(
+    getFilms,
+    getFilmId,
+    (one, two) => {
+      if (one.length) {
+        return one.find((it) => it.id === Number(two)).name;
+      } else {
+        return ``;
+      }
+    }
+);

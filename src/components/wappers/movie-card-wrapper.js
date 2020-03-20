@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MovieMainWrapper = (props) => {
+  const {renderClassName} = props;
   return (
-    <section className="movie-card">
+    <section className={renderClassName ? renderClassName : `movie-card`}>
       {props.children}
     </section>
   );

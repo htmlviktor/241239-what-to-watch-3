@@ -11,15 +11,16 @@ import {MovieMainWrapper, PageContentWrapper} from "../../wappers";
 import {VideoPlayerMain} from "../../containers/video-player";
 import {connect} from 'react-redux';
 import {getIsShowPlayer} from "../../../reducer/app/selectors";
+import {getCurrentFilm} from "../../../reducer/data/selectors";
 
 
-const MainPage = ({isShowPlayer}) => {
+const MainPage = ({isShowPlayer, film}) => {
   return (
     <React.Fragment>
       <MovieMainWrapper>
         <CardFilmBg />
         <Header />
-        <MovieCardWrap showPoster={true}/>
+        <MovieCardWrap film={film} showPoster={true}/>
       </MovieMainWrapper>
       <PageContentWrapper>
         <section className="catalog">
@@ -40,7 +41,8 @@ MainPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  isShowPlayer: getIsShowPlayer(state)
+  isShowPlayer: getIsShowPlayer(state),
+  film: getCurrentFilm(state)
 });
 
 export default connect(mapStateToProps)(MainPage);

@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {ActionCreator} from "../../../reducer/app/reducer";
 import {connect} from 'react-redux';
-import {getCurrentFilm} from "../../../reducer/data/selectors";
 import {getAuthStatus} from "../../../reducer/user/selectors";
 import {AUTH_STATUS} from "../../../const";
+import {Link} from "react-router-dom";
 
 const MovieCardWrap = ({film, showPoster, onPlayClick, status}) => {
-
   return <div className="movie-card__wrap">
     <div className="movie-card__info">
       {showPoster && <div className="movie-card__poster">
@@ -42,7 +41,7 @@ const MovieCardWrap = ({film, showPoster, onPlayClick, status}) => {
             </svg>
             <span>My list</span>
           </button>
-          {status === AUTH_STATUS.AUTH && <a href="add-review.html" className="btn movie-card__button">Add review</a>}
+          {status === AUTH_STATUS.AUTH && <Link to={`/add-review/${film.id}`} className="btn movie-card__button">Add review</Link>}
         </div>
       </div>
     </div>
@@ -56,7 +55,6 @@ MovieCardWrap.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  film: getCurrentFilm(state),
   status: getAuthStatus(state)
 });
 

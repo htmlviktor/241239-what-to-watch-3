@@ -1392,3 +1392,8 @@ main {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
+
+
+.load-indicator {
+  background-image: url("../img/preload.gif");
+}

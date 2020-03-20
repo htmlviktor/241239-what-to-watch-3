@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const LoadIndicator = () => (
-  <div>Загрузка...</div>
+  <div className={`load-indicator`}>Загрузка...</div>
 );
 
 const withLoadIndicator = (Component) => {
