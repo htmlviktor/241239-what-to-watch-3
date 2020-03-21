@@ -1,6 +1,7 @@
 import axios from 'axios';
+import {checkFailRoute} from "../utils";
 
-const createApi = () => {
+const createApi = (onError) => {
   const api = axios.create({
     baseURL: `https://htmlacademy-react-3.appspot.com/wtw`,
     timeout: `5000`,
@@ -10,9 +11,7 @@ const createApi = () => {
   const onSuccess = (response) => response;
 
   const onFail = (error) => {
-    if (error.response.status === 403) {
-      return {data: null};
-    }
+    checkFailRoute(onError, error);
     return error;
   };
 

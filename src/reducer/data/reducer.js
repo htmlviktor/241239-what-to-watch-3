@@ -9,13 +9,15 @@ const initialState = {
 const ActionType = {
   CHANGE_FILTER_NAME: `CHANGE_FILTER_NAME`,
   LOAD_FILMS: `LOAD_FILMS`,
-  ADD_PROMO_FILM: `ADD_PROMO_FILM`
+  ADD_PROMO_FILM: `ADD_PROMO_FILM`,
+  ADD_COMMENT_TO_FILM: `ADD_COMMENT_TO_FILM`
 };
 
 const ActionCreator = {
   changeFilterName: (name) => ({type: ActionType.CHANGE_FILTER_NAME, payload: name}),
   addFilms: (data) => ({type: ActionType.LOAD_FILMS, payload: data}),
-  addPromoFilm: (data) => ({type: ActionType.ADD_PROMO_FILM, payload: data})
+  addPromoFilm: (data) => ({type: ActionType.ADD_PROMO_FILM, payload: data}),
+  addComment: (payload) => ({type: ActionType.ADD_COMMENT_TO_FILM, payload})
 };
 
 
@@ -27,6 +29,9 @@ const Operation = {
         dispatch(ActionCreator.addFilms(data));
         dispatch(ActionCreator.addPromoFilm(res.data[0]));
       });
+  },
+  addComment: (id, comment, rating) => (dispatch, _getState, api) => {
+    return api.post(`/comments/${id}`, {rating, comment});
   }
 };
 

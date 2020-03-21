@@ -11,8 +11,10 @@ import {Provider} from 'react-redux';
 
 import thunk from "redux-thunk";
 import createApi from "./api/api";
+import {AppRoute} from "./const";
+import {pushHistory} from "./utils";
 
-const api = createApi();
+const api = createApi(() => pushHistory(AppRoute.LOGIN));
 
 const store = createStore(reducer, applyMiddleware(thunk.withExtraArgument(api)));
 

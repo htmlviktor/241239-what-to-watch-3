@@ -1,9 +1,12 @@
 import React from 'react';
 
-export const TextArea = ({onChange, isBlocked}) => {
+export const TextArea = ({onChange, isBlocked, backgroundColor, isBlockedInput}) => {
   return (
-    <div className="add-review__text">
+    <div
+
+      className="add-review__text">
       <textarea
+        disabled={isBlockedInput}
         onChange={onChange}
         className="add-review__textarea" name="review-text" id="review-text"
         placeholder="Review text" />
