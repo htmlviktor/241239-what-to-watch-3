@@ -1,19 +1,10 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {AppRoute, AUTH_STATUS} from "../../../const";
-import {connect} from 'react-redux';
-import {getAuthStatus} from "../../../reducer/user/selectors";
+import {AppRoute} from "../../../const";
+import Avatar from '../avatar';
 
-
-const Avatar = () => {
-  return (
-    <div className="user-block__avatar">
-      <img src="img/avatar.jpg" alt="User avatar" width={63} height={63} />
-    </div>
-  );
-};
-
-const Header = ({status}) => {
+const Header = (props) => {
+  const {render} = props;
   return <header className="page-header movie-card__head">
     <div className="logo">
       <Link to={AppRoute.ROOT} className="logo__link">
@@ -22,17 +13,13 @@ const Header = ({status}) => {
         <span className="logo__letter logo__letter--3">W</span>
       </Link>
     </div>
+    {render}
     <div className="user-block">
-      {status === AUTH_STATUS.NO_AUTH ? <Link className={`catalog__genres-link`} to={AppRoute.LOGIN}>Sign in</Link> :
-        <Avatar />
-      }
+      <Avatar/>
     </div>
   </header>;
 
 };
 
-const mapStateToProps = (state) => ({
-  status: getAuthStatus(state)
-});
 
-export default connect(mapStateToProps)(Header);
+export default Header;

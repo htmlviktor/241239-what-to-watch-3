@@ -1,8 +1,12 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
+const LoadIndicator = () => (
+  <div className={`load-indicator`}>Загрузка...</div>
+);
+
 const withLoadIndicator = (Component) => {
-  class WithLoadIndicator extends PureComponent {
+  class WithLoadIndicator extends React.Component {
     constructor(props) {
       super(props);
 
@@ -12,7 +16,15 @@ const withLoadIndicator = (Component) => {
     }
 
     componentDidUpdate(prevProps) {
-      if (prevProps.item !== this.props.item) {
+      if (this.props.item) {
+        if (prevProps.item !== this.props.item) {
+          this.setState({isLoading: false});
+        }
+      }
+    }
+
+    componentDidMount() {
+      if (this.props.item) {
         this.setState({isLoading: false});
       }
     }
@@ -20,7 +32,7 @@ const withLoadIndicator = (Component) => {
 
     render() {
       if (this.state.isLoading) {
-        return <div>Загрузка...</div>;
+        return <LoadIndicator/>;
       }
       return (
         <Component {...this.props}/>
@@ -31,6 +43,7 @@ const withLoadIndicator = (Component) => {
   WithLoadIndicator.propTypes = {
     item: PropTypes.object
   };
+
 
   return WithLoadIndicator;
 

@@ -1,7 +1,8 @@
 export const AppRoute = {
   LOGIN: `/login`,
   FILMS: `/films`,
-  ROOT: `/`
+  ROOT: `/`,
+  ADD_REVIEW: `/add-review`
 };
 
 export const AUTH_STATUS = {

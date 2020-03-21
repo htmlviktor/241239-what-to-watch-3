@@ -38,6 +38,22 @@ export const getFilmForId = createSelector(
     getFilms,
     getFilmId,
     (one, two) => {
-      return one.find((it) => it.id === Number(two));
+      if (one.length) {
+        return one.find((it) => it.id === Number(two));
+      } else {
+        return ``;
+      }
+    }
+);
+
+export const getFilmName = createSelector(
+    getFilms,
+    getFilmId,
+    (one, two) => {
+      if (one.length) {
+        return one.find((it) => it.id === Number(two)).name;
+      } else {
+        return ``;
+      }
     }
 );

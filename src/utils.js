@@ -1,4 +1,5 @@
 import history from "./history";
+import {AppRoute} from "./const";
 
 export const filterForFilms = (films, filterName) => {
   switch (filterName) {
@@ -31,6 +32,12 @@ export const adapter = (data) => ({
   previewVideoLink: data[`preview_video_link`]
 });
 
+export const userAdapter = (data) => ({
+  id: data.id,
+  email: data.email,
+  name: data.name,
+  avatar: data[`avatar_url`]
+});
 
 export const pushHistory = (route, param) => {
   if (param) {
@@ -39,3 +46,14 @@ export const pushHistory = (route, param) => {
     history.push(`${route}`);
   }
 };
+
+export const checkFailRoute = (cb, error) => {
+  if (error.response.status === 401) {
+    switch (location.pathname) {
+      case AppRoute.ROOT: return {data: null};
+      default: cb();
+    }
+  }
+  return error;
+};
+
