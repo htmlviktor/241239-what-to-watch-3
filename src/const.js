@@ -2,7 +2,8 @@ export const AppRoute = {
   LOGIN: `/login`,
   FILMS: `/films`,
   ROOT: `/`,
-  ADD_REVIEW: `/add-review`
+  ADD_REVIEW: `/add-review`,
+  LIST: `/my-list`
 };
 
 export const AUTH_STATUS = {
